@@ -26,7 +26,14 @@ WHERE {
         if not all([e.isdigit() for e in [b, w, h]]):
             continue
 
-        d.append({'name': name, 'b': int(float(b)), 'w': int(float(w)), 'h': int(float(h))})
+        b = int(float(b))
+        w = int(float(w))
+        h = int(float(h))
+
+        if not all([0 < e <= 150 for e in [b, w, h]]):
+            continue
+
+        d.append({'name': name, 'b': b, 'w': w, 'h': h})
 
     return d
 
