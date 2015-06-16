@@ -22,8 +22,13 @@ if __name__ == '__main__':
     names, features = load_bwh_data()
     features = np.array(features)
 
-    k = 5
+    k = 10
     labels = kmeans(features, k=k)
+
+    for l, n, f in zip(labels, names, features):
+        print l, n.encode('utf-'), f
+
+    exit()
 
 
     from mpl_toolkits.mplot3d import Axes3D
